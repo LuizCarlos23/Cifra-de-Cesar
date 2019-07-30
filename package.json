@@ -1,0 +1,12 @@
+{
+  "name": "criptografarEDescriptografarCifraDeCesa",
+  "version": "1.0.0",
+  "description": "\"cifraDeCesa_Criptografar\" e \"cifraDeCesa_Descriptografar\" Como o proprio nome ja diz, esses programas criptografa ou descriptografa palavras ou frases.     OBS: Não ultileze acentos nas palavras",
+  "main": "cifraDeCesa_Criptografar.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
