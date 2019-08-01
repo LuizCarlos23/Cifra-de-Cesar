@@ -75,7 +75,9 @@ function analisarString(string, variavel){
         }
     } else if (variavel == 'stringCriptografado'){
         string.forEach(element => {
-            if ( alfabeto.includes(element) == false){
+            if (element == " ") {
+
+            } else if ( alfabeto.includes(element) == false){
                 erro = true
             }  
         }); 
