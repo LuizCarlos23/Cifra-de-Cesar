@@ -5,7 +5,6 @@
 
 // Variaveis e Constantes
 const input = require('readline-sync')
-const fs = require('fs')
 const alfabeto = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 let novoAlfabeto = alfabeto.slice()
 let stringCriptografado = "" 
@@ -57,8 +56,8 @@ function menu(){
 function inputs(){
     posicao = input.question('Digite a posição da cifra de cesa [0-24/all] ').split(' ') || 0 // Posição para criar novo alfabeeto
     analisarString(posicao, "posicao")
-    stringNormal = input.question('Digite a palavra ou frase\npara ser descriptografada: ').toLowerCase().split('') // String para ser critografada
-    analisarString(stringCriptografado, "stringCriptografado")
+    stringNormal = input.question('Digite a palavra ou frase\npara ser criptografada: ').toLowerCase().split('') // String para ser critografada
+    analisarString(stringNormal, "stringNormal")
 }
 
 function analisarString(string, variavel){
