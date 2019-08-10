@@ -5,12 +5,14 @@
 
 // Variaveis e Constantes
 const input = require('readline-sync')
+const fs = require('fs')
 const alfabeto = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 let novoAlfabeto = alfabeto.slice()
 let stringCriptografado = "" 
 let continuar = null
 let posicao = null
 let stringNormal = ""
+
 
 // Funções
 function isNumber(n) {
@@ -53,25 +55,31 @@ function menu(){
 }
 
 function inputs(){
-    posicao = input.question('Digite a posição da cifra de cesa [0-24/all] ') || 0 // Posição para criar novo alfabeeto
+    posicao = input.question('Digite a posição da cifra de cesa [0-24/all] ').split(' ') || 0 // Posição para criar novo alfabeeto
     analisarString(posicao, "posicao")
-    stringNormal = input.question('Digite a palavra ou frase\npara ser criptografada: ').toLowerCase().split('') // String para ser critografada
-    analisarString(stringNormal, "stringNormal")
+    stringNormal = input.question('Digite a palavra ou frase\npara ser descriptografada: ').toLowerCase().split('') // String para ser critografada
+    analisarString(stringCriptografado, "stringCriptografado")
 }
 
 function analisarString(string, variavel){
     let erro = null
     if (variavel == 'posicao') {
-        if (isNumber(string) == true){
-            if ( (string < 0) || (string > 24) ) {
-                console.log("Valor inaceitavel")
-                posicao = input.question('Digite novamente [0-24/all] ')
-                analisarString(posicao, "posicao")
-            } 
-        } else if (string != "all"){
-            console.log("valor inaceitavel")
-            posicao = input.question('Digite novamente [0-24/all] ')
-            analisarString(posicao, "posicao")
+        if (isNumber(string[0]) == true){
+            string.forEach(element => {
+                if(isNumber(element) == false) {
+                    console.log(`Valor inaceitavel: ${element}`)
+                    posicao = input.question('Digite novamente [0-24/all] ').split(' ')
+                    analisarString(posicao, "posicao")
+                } else if ( (element < 0) || (element > 24) ) {
+                    console.log(`Valor inaceitavel: ${element}`)
+                    posicao = input.question('Digite novamente [0-24/all] ').split(' ')
+                    analisarString(posicao, "posicao") 
+                } 
+            })
+        } else if (string[0].toLowerCase() != "all"){
+        console.log(`Valor inaceitavel: ${string[0]}`)
+        posicao = input.question('Digite novamente [0-24/all] ').split(' ')
+        analisarString(posicao, "posicao")
         }
     } else if (variavel == 'stringNormal'){
         string.forEach(element => {
@@ -80,7 +88,7 @@ function analisarString(string, variavel){
             } else if ( alfabeto.includes(element) == false){
                 erro = true
             }  
-        }); 
+        }) 
         if(erro == true){
             console.log('Não pode conter acentos, caracteres ou números')
             stringNormal = input.question('Digite novamente: ').toLocaleLowerCase().split('')
@@ -103,9 +111,12 @@ do{
             console.log(`${posicao}.${stringCriptografado}`)
         }
     } else {
-        criarNovoAlfabeto(posicao)
-        stringCriptografado = criptografarString()
-        console.log(`Criptografado: ${stringCriptografado}`)
+        console.log('Criptografado:')
+        posicao.forEach(element => {
+            criarNovoAlfabeto(element)
+            stringCriptografado = criptografarString()
+            console.log(`${element}.${stringCriptografado}`)
+        })
     }
     
     zerarVariaveis()
