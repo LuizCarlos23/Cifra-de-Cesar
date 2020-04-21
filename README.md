@@ -11,9 +11,10 @@ OBS: Não ultileze acentos nas palavras
 Você irar precisar do node.js e a biblioteca readline-sync para rodar esses scripts
 
 
-Baixe o node nesse site: [link](https://nodejs.org/en/)
+Baixe o node nesse site: [nodejs.org](https://nodejs.org/en/)
 
-Para baixar o readline-sync abra seu terminal/cmd na pasta do programa e digite:
+Para baixar o readline-sync: 
+abra seu terminal/cmd na pasta do programa e digite: 
 `npm install readline-sync`
 
 Para executar os scripts:
