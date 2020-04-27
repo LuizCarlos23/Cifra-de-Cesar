@@ -1,8 +1,8 @@
 {
-  "name": "criptografarEDescriptografarCifraDeCesa",
+  "name": "Cifra-de-Cesar",
   "version": "1.0.0",
-  "description": "\"cifraDeCesa_Criptografar\" e \"cifraDeCesa_Descriptografar\" Como o proprio nome ja diz, esses programas criptografa ou descriptografa palavras ou frases.     OBS: Não ultileze acentos nas palavras",
-  "main": "cifraDeCesa_Criptografar.js",
+  "description": "Criptografar, usa-se para criptografar palavra ou frases desejadas, ultilizando a Cirfra de Cesar.\nDescriptografar, usa-se para descriptografar palavras ou frases criptografas em Cifra de Cesar.\nOBS: Não ultileze acentos nas palavras",
+  "main": "Criptografar.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "package.json": "^2.0.1",
     "readline-sync": "^1.4.10"
   }
 }
